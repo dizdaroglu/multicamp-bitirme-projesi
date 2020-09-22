@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.multicampproje.R
 import com.example.multicampproje.adapter.GdgRecyclerAdapter
@@ -36,6 +37,16 @@ class HomeFragment : Fragment() {
         viewModel.veriCek()
 
         bannerRecyclerView.adapter = gdgRecyclerAdapter
+
+        observeLiveData()
+    }
+
+    fun observeLiveData(){
+            viewModel.gdgList.observe(viewLifecycleOwner, Observer {liste->
+                liste?.let {
+                    gdgRecyclerAdapter.dataUpdate(it)
+                }
+            })
     }
 
 

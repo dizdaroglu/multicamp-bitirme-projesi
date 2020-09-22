@@ -2,6 +2,7 @@ package com.example.multicampproje.viewModel
 
 import android.app.Application
 import android.widget.Toast
+import androidx.lifecycle.MutableLiveData
 import com.example.multicampproje.model.CommunityModel
 import com.example.multicampproje.model.CommunityModelItem
 import com.example.multicampproje.service.ServiceBuilder
@@ -12,6 +13,7 @@ import io.reactivex.schedulers.Schedulers
 
 class HomeFragmentViewModel(application: Application):BaseViewModel(application) {
 
+    var gdgList = MutableLiveData<List<CommunityModelItem>>()
 
     private val disposable = CompositeDisposable()
 
@@ -22,7 +24,7 @@ class HomeFragmentViewModel(application: Application):BaseViewModel(application)
                 .subscribeOn(Schedulers.newThread())
                 .subscribeWith(object :DisposableSingleObserver<List<CommunityModelItem>>(){
                     override fun onSuccess(t: List<CommunityModelItem>) {
-                      println(t)
+                      gdgList.value=t
                     }
                     override fun onError(e: Throwable) {
                         println("hata!!")
