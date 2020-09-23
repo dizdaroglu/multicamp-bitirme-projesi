@@ -42,6 +42,16 @@ class HomeFragment : Fragment() {
     }
 
     fun observeLiveData(){
+        viewModel.yukleniyor.observe(viewLifecycleOwner, Observer { progresBar->
+            progresBar?.let {
+                if(it){
+                    bannerRecyclerView.visibility = View.GONE
+                }else{
+                    homeProgressBar.visibility= View.GONE
+                    bannerRecyclerView.visibility=View.VISIBLE
+                }
+            }
+        })
             viewModel.gdgList.observe(viewLifecycleOwner, Observer {liste->
                 liste?.let {
                     gdgRecyclerAdapter.dataUpdate(it)

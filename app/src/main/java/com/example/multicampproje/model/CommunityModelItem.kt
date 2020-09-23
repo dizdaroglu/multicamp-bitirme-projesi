@@ -1,7 +1,13 @@
 package com.example.multicampproje.model
 
+import android.os.Parcelable
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
+import java.util.*
 
+
+@Parcelize
 data class CommunityModelItem(
     @SerializedName("banner")
     val banner: String,
@@ -13,4 +19,6 @@ data class CommunityModelItem(
     val links: Links,
     @SerializedName("name")
     val name: String
-)
+):Parcelable{
+    var gdgId :UUID? = null
+}
