@@ -1,6 +1,5 @@
 package com.example.multicampproje.service
 
-import com.example.multicampproje.model.CommunityModel
 import com.example.multicampproje.model.CommunityModelItem
 import io.reactivex.Single
 import retrofit2.http.GET

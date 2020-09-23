@@ -1,8 +1,5 @@
 package com.example.multicampproje.service
 
-import com.example.multicampproje.model.CommunityModel
-import com.example.multicampproje.model.CommunityModelItem
-import io.reactivex.Single
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
